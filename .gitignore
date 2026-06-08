@@ -1,0 +1,8 @@
+# هیچ‌وقت کلید API رو commit نکن
+.env
+*.env
+secrets.*
+
+# OS
+.DS_Store
+Thumbs.db

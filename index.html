@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بهونه</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <span class="header-ornament">🫖</span>
+    <h1><span>بهونه</span></h1>
+    <p class="header-sub">برای هر موقعیتی یه بهونه هست‌‌‌‌ 😉</p>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <div class="section-label">📍 موقعیت رو انتخاب کن</div>
+  <div class="situation-grid" id="situationGrid">
+    <button class="situation-btn" data-situation="دیر رسیدن به جلسه یا قرار">
+      <span class="situ-icon">🕐</span>
+      <span class="situ-label">دیر رسیدن</span>
+    </button>
+    <button class="situation-btn" data-situation="نرفتن به مهمونی یا دورهمی">
+      <span class="situ-icon">🥳</span>
+      <span class="situ-label">نرفتن به مهمونی</span>
+    </button>
+    <button class="situation-btn" data-situation="تحویل ندادن کار یا تکلیف">
+      <span class="situ-icon">📋</span>
+      <span class="situ-label">ندادن کار/تکلیف</span>
+    </button>
+    <button class="situation-btn" data-situation="زنگ نزدن یا جواب ندادن به تلفن">
+      <span class="situ-icon">📵</span>
+      <span class="situ-label">جواب ندادن تلفن</span>
+    </button>
+    <button class="situation-btn" data-situation="پول قرضی رو پس ندادن">
+      <span class="situ-icon">💸</span>
+      <span class="situ-label">پس ندادن قرض</span>
+    </button>
+    <button class="situation-btn" data-situation="فراموش کردن تولد یا مناسبت مهم">
+      <span class="situ-icon">🎂</span>
+      <span class="situ-label">فراموشی تولد</span>
+    </button>
+    <button class="situation-btn" data-situation="ندادن جواب به پیام یا واتساپ">
+      <span class="situ-icon">💬</span>
+      <span class="situ-label">جواب ندادن پیام</span>
+    </button>
+    <button class="situation-btn" data-situation="فرار از رفتن سر کار یا دانشگاه">
+      <span class="situ-icon">🏃</span>
+      <span class="situ-label">نرفتن سر کار</span>
+    </button>
+  </div>
+
+  <!-- Custom situation -->
+  <div class="custom-input-wrap">
+    <div class="section-label">✍️ یا موقعیت خودت رو بنویس</div>
+    <textarea id="customSituation" placeholder="مثلاً: خونه‌ام به هم ریخته و نمی‌خوام مامانم بیاد..."></textarea>
+  </div>
+
+  <!-- Options row -->
+  <div class="options-row">
+    <div class="option-group">
+      <label>🔥 شدت بهونه</label>
+      <select id="severity">
+        <option value="ساده و معقول">ساده و معقول</option>
+        <option value="کمی اغراق‌آمیز" selected>کمی اغراق‌آمیز</option>
+        <option value="خیلی دراماتیک و هیجانی">خیلی دراماتیک</option>
+        <option value="کاملاً پرت و باورنکردنی">پرت و باورنکردنی!</option>
+      </select>
+    </div>
+    <div class="option-group">
+      <label>🎭 سبک بهونه</label>
+      <select id="style">
+        <option value="با نگرانی و دلسوزی">نگران‌کننده</option>
+        <option value="خنده‌دار و شوخ‌طبعانه" selected>خنده‌دار</option>
+        <option value="رسمی و جدی">رسمی و جدی</option>
+        <option value="غمگین و دلخراش">غمگین و دلخراش</option>
+        <option value="با افتخار و مظلوم‌نمایی">مظلوم‌نمایی!</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Generate button -->
+  <button class="generate-btn" id="generateBtn" onclick="generateExcuse()">
+    <div class="btn-inner" id="btnContent">
+      <span>🎯</span>
+      <span>بهونه‌ام رو بساز!</span>
+    </div>
+  </button>
+
+  <!-- Result card -->
+  <div class="result-card" id="resultCard">
+    <div class="result-header">
+      <span class="result-header-title">✦ بهونه شما</span>
+      <div class="result-quality" id="qualityStars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+    </div>
+    <div class="result-body">
+      <div class="excuse-text" id="excuseText"></div>
+    </div>
+    <div class="tip-box" id="tipBox">
+      <div class="tip-label">💡 نکته کاربردی</div>
+      <div id="tipText"></div>
+    </div>
+    <div class="result-footer">
+      <button class="action-btn" id="copyBtn" onclick="copyExcuse()">
+        📋 کپی کن
+      </button>
+      <button class="action-btn" onclick="generateExcuse()">
+        🔄 یه بهونه دیگه
+      </button>
+      <button class="action-btn" onclick="shareWhatsApp()">
+        📱 واتساپ
+      </button>
+      <button class="action-btn" onclick="shareTelegram()">
+        ✈️ تلگرام
+      </button>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="history-section" id="historySection" style="display:none">
+    <div class="history-title">
+      <span>📜</span> بهونه‌های قبلی
+    </div>
+    <div class="history-list" id="historyList"></div>
+  </div>
+
+  <div class="footer"><a href="https://github.com/amirfeqhi" target="_blank" rel="noopener" style="color:#b0a090; text-decoration:none; border-bottom: 1px solid rgba(176,160,144,0.4); padding-bottom:1px;">github.com/amirfeqhi</a></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
