@@ -38,7 +38,7 @@ async function generateExcuse() {
   const btn = document.getElementById('generateBtn');
   const btnContent = document.getElementById('btnContent');
   btn.disabled = true;
-  btnContent.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div> <span>داریم بهونه می‌بافیم...</span>';
+  btnContent.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div> <span>دارم بهونه می‌بافم...</span>';
 
   const resultCard = document.getElementById('resultCard');
   const excuseText = document.getElementById('excuseText');
